@@ -14,7 +14,6 @@ pipeline {
     stage('Build and Test') {
       steps {
         sh 'ls -ltr'
-        // pom.xml is in root, no subdirectory needed
         sh 'mvn clean package'
       }
     }
@@ -51,7 +50,7 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    git config user.email "akshay1926rat@gmail.com"
+                    git config user.email "akshayrathod1817@gmail.com"
                     git config user.name "Akshay Rathod"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" deployment.yml
