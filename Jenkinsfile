@@ -8,6 +8,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
+        sh 'rm -rf target'
         sh 'echo passed'
       }
     }
